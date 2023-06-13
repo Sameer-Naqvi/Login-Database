@@ -86,21 +86,21 @@
                 return;
             }
 
-            if (parseFloat(gpa) >= 6.0) {
+            if (parseFloat(gpa) > 4.33) {
                 event.preventDefault(); // Prevent form submission
-                showMessage('GPA must be below 6.0.');
+                showMessage('GPA must be below 4.33.');
                 return;
             }
 
             if (parseFloat(height) <= 0 || parseFloat(height) >= 300) {
                 event.preventDefault(); // Prevent form submission
-                showMessage('Height must be between 0 and 300.');
+                showMessage('Height must be between 0 and 300 centimetres.');
                 return;
             }
 
             if (parseFloat(weight) <= 0 || parseFloat(weight) >= 500) {
                 event.preventDefault(); // Prevent form submission
-                showMessage('Weight must be between 0 and 500.');
+                showMessage('Weight must be between 0 and 500 kilograms.');
                 return;
             }
         });
