@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,7 +47,7 @@ public class UsersController {
         System.out.println("getting users");
         List<User> users = userRepo.findAll();
         model.addAttribute("users", users);
-        return "users/showAll";
+        return "redirect:/users/mainPage";
     }
      @PostMapping("/users/remove")
     public String removeUser(@RequestParam("uid") int uid, HttpServletResponse response, Model model){
@@ -54,7 +55,7 @@ public class UsersController {
         System.out.println("getting users");
         List<User> users = userRepo.findAll();
         model.addAttribute("users", users);
-        return "users/showAll";
+        return "redirect:/users/mainPage";
     }
     @PostMapping("/users/edit") 
 public String editUser(@RequestParam Map<String, String> edituser, HttpServletResponse response, Model model) { 
@@ -62,7 +63,7 @@ public String editUser(@RequestParam Map<String, String> edituser, HttpServletRe
     String newName = edituser.get("name"); 
     String newPwd = edituser.get("password"); 
     int id =  Integer.parseInt(edituser.get("uid")); 
-    int gpa = Integer.parseInt(edituser.get("gpa"));
+    double gpa = Double.parseDouble(edituser.get("gpa"));
     int height = Integer.parseInt(edituser.get("height"));
     int weight = Integer.parseInt(edituser.get("weight"));
     String colour = edituser.get("colour");
@@ -81,10 +82,15 @@ public String editUser(@RequestParam Map<String, String> edituser, HttpServletRe
         System.out.println("getting users"); 
         List<User> users = userRepo.findAll(); 
         model.addAttribute("users", users); 
-        return "users/showAll"; 
+        return "redirect:/users/mainPage";
 
 } 
 
+  @ExceptionHandler(Exception.class)
+    public String handleException(Exception e, Model model) {
+        model.addAttribute("errorMessage", "An unexpected error occurred: " + e.getMessage());
+        return "error";
+    }
     @GetMapping("/users/addNewUser")
     public String showAddNewUserPage() {
         return "users/addNewUser";
