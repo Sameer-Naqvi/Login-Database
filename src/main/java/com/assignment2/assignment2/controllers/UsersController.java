@@ -96,13 +96,14 @@ public String editUser(@RequestParam Map<String, String> edituser, HttpServletRe
         return "users/addNewUser";
     }
     @GetMapping("/users/editUser")
-    public String showEditUserPage(@RequestParam("uid") int uid, @RequestParam("name") String name,  @RequestParam("password") String password, @RequestParam("gpa") double gpa, @RequestParam("height") int height, @RequestParam("weight") int weight, @RequestParam("ig") String ig,   Model model) {
+    public String showEditUserPage(@RequestParam("uid") int uid, @RequestParam("name") String name,  @RequestParam("password") String password, @RequestParam("gpa") double gpa, @RequestParam("height") int height, @RequestParam("weight") int weight, @RequestParam("colour") String colour, @RequestParam("ig") String ig,   Model model) {
         model.addAttribute("uid", uid);
         model.addAttribute("name", name);
         model.addAttribute("password", password);
         model.addAttribute("gpa", gpa);
         model.addAttribute("height", height);
         model.addAttribute("weight", weight);
+        model.addAttribute("colour", colour);
         model.addAttribute("ig", ig);
         return "users/editUser";
     }

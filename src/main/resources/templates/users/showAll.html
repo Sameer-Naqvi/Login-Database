@@ -66,7 +66,7 @@
             <input type="hidden" name="uid" th:value="${user.uid}">
             </form>
             
-              <a th:href="@{/users/editUser(uid=${user.uid}, name=${user.name}, password=${user.password}, gpa=${user.gpa}, height=${user.height}, weight=${user.weight}, ig=${user.ig})}" onclick="redirectWithFormData(event)">
+              <a th:href="@{/users/editUser(uid=${user.uid}, name=${user.name}, password=${user.password}, gpa=${user.gpa}, height=${user.height}, weight=${user.weight}, colour=${user.colour}, ig=${user.ig})}" onclick="redirectWithFormData(event)">
                 <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
                 <button class="btn btn-success" for="success">Edit User</button>
                 
