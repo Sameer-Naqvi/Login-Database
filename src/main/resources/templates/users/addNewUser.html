@@ -86,7 +86,7 @@
                 return;
             }
 
-            if (parseFloat(gpa) >= 4.33) {
+            if (parseFloat(gpa) > 4.33) {
                 event.preventDefault(); // Prevent form submission
                 showMessage('GPA must be below 4.33.');
                 return;
