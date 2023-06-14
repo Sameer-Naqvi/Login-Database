@@ -39,6 +39,8 @@ Height: Must be between 0cm and 300cm.
 Weight: Must be between 0kg and 500kg.
 Favourite Colour: Can be inputted as any string but was mentioned by the prof that we will only be tested with valid colours.
 Instagram Account: Can be any string value.
+All Inputs Not Filled Out: Results in the red error message displayed at the bottom and the user cannot submit the form until
+all values are filled out on the form.
 
 Error Message:
 Red box displayed at the bottom of the form displaying the error in the inputs until it is corrected.
